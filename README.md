@@ -1,4 +1,4 @@
-# Programming-problems
+# Programming-problems-solutions
 Programming problems solutions in c and c++ language.
 
 #AtCoder
