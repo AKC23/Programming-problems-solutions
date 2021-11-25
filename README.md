@@ -1,5 +1,5 @@
 # Programming-problems-solutions
-Programming problems solutions in c and c++ language.
+Programming problems solutions in c/c++/python language.
 
 #AtCoder
 #Codeforces
