@@ -1,8 +1,10 @@
 # Programming-problems-solutions
-Programming problems solutions in c/c++/python language.
+Programming problem solutions in c/c++/python/sql language.
 
 #AtCoder
 #Codeforces
 #CodeChef
 #HackerRank
 #HackerEarth
+#LeetCode
+#UVa
