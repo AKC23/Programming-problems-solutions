@@ -17,8 +17,8 @@ jobs:
           echo "## 📂 Last 5 Uploaded Files" > latest_files.md
           echo "" >> latest_files.md
 
-          # Get last 5 modified or added files
-          git log --pretty=format:"%ad %h %s" --date=short --name-only --diff-filter=A,M | grep -vE '^$' | awk '!seen[$0]++' | tail -5 | while read -r filedate hash filename; do
+          # Get last 5 recently committed files
+          git log --pretty=format:"%ad %h" --date=short --name-only --diff-filter=A,M | grep -vE '^$' | head -30 | awk '!seen[$0]++' | head -5 | while read -r filedate hash filename; do
             if [[ -n "$filename" && -f "$filename" ]]; then
               encoded_filename=$(echo "$filename" | sed 's/ /%20/g')  # Encode spaces for GitHub URLs
               echo "- [$filename](https://github.com/AKC23/Programming-problems-solutions/blob/master/$encoded_filename) (📅 $filedate)" >> latest_files.md
