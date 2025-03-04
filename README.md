@@ -32,12 +32,7 @@ You can find more of my solved problems and activity on my **StopStalk** profile
 Happy Coding! 🚀💡
 
 
-
-
-
-
-
-## 📂 Last 5 Uploaded Files
+## 📂 Last few Uploaded Files
 
 - [Contest 2020/A Number of Multiples.cpp](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest 2020/A Number of Multiples.cpp) (📅 AtCoder/AIsing)
 - [Contest 2020/A Number of Multiples.exe](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest 2020/A Number of Multiples.exe) (📅 AtCoder/AIsing)
