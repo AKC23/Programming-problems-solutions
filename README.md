@@ -30,7 +30,3 @@ You can find more of my solved problems and activity on my **StopStalk** profile
 
 
 Happy Coding! 🚀💡
-
-
-## 📂 Last 5 Uploaded Files
-
