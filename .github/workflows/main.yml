@@ -16,9 +16,7 @@ jobs:
         run: |
           echo "## 📂 Last 5 Uploaded Files" > latest_files.md
           echo "" >> latest_files.md
-          git log --name-only --pretty=format:"%ad - %h" --date=short | grep -v '^$' | head -10 | awk '!seen[$0]++' | head -5 | while read -r line; do
-            filename=$(echo $line | awk '{print $3}')
-            filedate=$(echo $line | awk '{print $1}')
+          git log --pretty=format:'%ad %h' --date=short --name-only | awk 'NF' | head -20 | awk '!seen[$0]++' | head -5 | while read -r filedate hash filename; do
             if [[ -n "$filename" ]]; then
               echo "- [$filename](https://github.com/AKC23/Programming-problems-solutions/blob/master/$filename) (📅 $filedate)" >> latest_files.md
             fi
