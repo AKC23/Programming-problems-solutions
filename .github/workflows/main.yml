@@ -16,15 +16,17 @@ jobs:
         run: |
           echo "## 📂 Last 5 Uploaded Files" > latest_files.md
           echo "" >> latest_files.md
-          
-          # Get last 5 modified files across all directories
-          git log --pretty=format:'%ad %h %s' --date=short --name-only --diff-filter=A,M,C | awk 'NF' | head -30 | awk '!seen[$0]++' | head -5 | while read -r filedate hash filename; do
-            if [[ -n "$filename" ]]; then
-              echo "- [$filename](https://github.com/AKC23/Programming-problems-solutions/blob/master/$filename) (📅 $filedate)" >> latest_files.md
+
+          # Get last 5 modified or added files (excluding directories)
+          git log --pretty=format:"%ad %h" --date=short --name-only --diff-filter=A,M | grep -vE '^$' | sort | uniq | tail -5 | while read -r filedate hash filename; do
+            if [[ -n "$filename" && -f "$filename" ]]; then
+              # Ensure proper URL encoding for spaces
+              encoded_filename=$(echo "$filename" | sed 's/ /%20/g')
+              echo "- [$filename](https://github.com/AKC23/Programming-problems-solutions/blob/master/$encoded_filename) (📅 $filedate)" >> latest_files.md
             fi
           done
 
-          cat latest_files.md
+          cat latest_files.md  # Debugging output
 
       - name: Update README
         run: |
