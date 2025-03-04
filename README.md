@@ -39,7 +39,6 @@ Happy Coding! 🚀💡
 
 ## 📂 Last 5 Uploaded Files
 
-- [df5a719](https://github.com/AKC23/Programming-problems-solutions/blob/master/df5a719) (📅 2025-03-04)
-- [Contest](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest) (📅 AtCoder/AIsing)
-- [Contest](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest) (📅 AtCoder/AIsing)
-- [Contest](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest) (📅 AtCoder/AIsing)
+- [Contest 2020/A Number of Multiples.cpp](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest 2020/A Number of Multiples.cpp) (📅 AtCoder/AIsing)
+- [Contest 2020/A Number of Multiples.exe](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest 2020/A Number of Multiples.exe) (📅 AtCoder/AIsing)
+- [Contest 2020/A Number of Multiples.o](https://github.com/AKC23/Programming-problems-solutions/blob/master/Contest 2020/A Number of Multiples.o) (📅 AtCoder/AIsing)
