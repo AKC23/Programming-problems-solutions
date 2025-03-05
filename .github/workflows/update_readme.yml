@@ -1,0 +1,32 @@
+name: Update README with latest files
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *' # Runs every hour
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Fetch Latest Files
+        run: |
+          git log --name-only --pretty=format:'' | grep -v '^$' | sort -u | tail -n 5 > latest_files.txt
+
+      - name: Update README
+        run: |
+          awk '/## 📂 Last 5 Uploaded Files/{flag=1; print; print "```"; system("cat latest_files.txt"); print "```"; next} flag && /^## /{flag=0} !flag' README.md > temp.md && mv temp.md README.md
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add README.md
+          git commit -m "Updated README with latest files" || exit 0
+          git push
