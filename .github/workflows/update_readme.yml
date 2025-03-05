@@ -17,11 +17,20 @@ jobs:
 
       - name: Fetch Latest Files
         run: |
-          git log --name-only --pretty=format:'' | grep -v '^$' | sort -u | tail -n 5 > latest_files.txt
+          git log --pretty=format:'' --name-only --diff-filter=A | grep -v '^$' | tail -n 5 > latest_files.txt
 
       - name: Update README
         run: |
-          awk '/## 📂 Last 5 Uploaded Files/{flag=1; print; print "```"; system("cat latest_files.txt"); print "```"; next} flag && /^## /{flag=0} !flag' README.md > temp.md && mv temp.md README.md
+          {
+            echo "## 📂 Last 5 Uploaded Files"
+            echo ""
+            while IFS= read -r file; do
+              echo "- $file"
+            done < latest_files.txt
+            echo ""
+          } > new_section.md
+          
+          awk '/## 📂 Last 5 Uploaded Files/{flag=1; print; while((getline line < "new_section.md") > 0) print line; flag=0; next} flag && /^## /{flag=0} !flag' README.md > temp.md && mv temp.md README.md
 
       - name: Commit and Push Changes
         run: |
